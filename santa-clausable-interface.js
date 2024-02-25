@@ -10,9 +10,8 @@ const notSanta = {
 };
 
 function isSantaClausable(obj) {
-    const interface = ['sayHoHoHo', 'distributeGifts', 'goDownTheChimney'];
-    const keys = new Set([...Object.keys(obj)]);
-    return interface.every((item) => keys.has(item))
+    const methods = ['sayHoHoHo', 'distributeGifts', 'goDownTheChimney'];
+    return methods.every(method => typeof obj[method] === 'function');
 }
 
 console.log(isSantaClausable(santa)); // must return TRUE
